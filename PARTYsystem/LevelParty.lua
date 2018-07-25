@@ -183,6 +183,7 @@ end
 
 
 LevelParty.ShowMain = function(pid)
+math.randomseed( os.time() )
 if LevelParty.IsParty(pid) then
 	LevelParty.ShowMembers(pid)
 else
@@ -382,14 +383,17 @@ if LevelParty.IsParty(pid) then -- add party needs two
  local PartyId = LevelParty.WhichParty(pid)
  
 	if LevelParty.GetLength(Partytable[PartyId].player) > 1 and LevelParty.IsNotTrainerCell(pid) then 
-	
+	if  Players[pid].data.customVariables.GoldTimer == nil or Players[pid].data.customVariables.GoldTimer  + 20 < os.time() then
 	for i, p in pairs(Partytable[PartyId].player) do
-	local randGold = math.random(50) + math.random(20)
+		local randGold = math.random(50) + math.random(20)
 		myMod.RunConsoleCommandOnPlayer(p.pd, "player->additem \"gold_001\" "..tostring(randGold))
+		Players[p.pd].data.customVariables.GoldTimer = os.time()
 		tes3mp.SendMessage(p.pd,color.ForestGreen.."[PartySystem] "..color.Default..tostring(randGold)..color.Gold.." GOLD "..color.Default.."added.\n", false)
 	end
-	
 	end
+	end
+
+  
 end
 end
 
@@ -484,6 +488,7 @@ end -- end function
 	
 
 LevelParty.GetSkillPlayer = function(pid) -- make skilledone better
+
 if LevelParty.IsParty(pid) then
 	local PartyId = LevelParty.WhichParty(pid)
 	
@@ -509,7 +514,8 @@ if LevelParty.IsParty(pid) then
 				end
 	end
 end
-				
+
+	
 end
 
 
@@ -517,13 +523,14 @@ end
 LevelParty.ProcessSkill = function(pid, linkedpid)
 				if Players[linkedpid] ~= nil and Players[linkedpid]:IsLoggedIn() then
 					local beforeskill = tes3mp.GetSkillBase(linkedpid, tes3mp.GetSkillId(skilledone))
-
+					Players[linkedpid].data.skills[skilledone] = beforeskill + 1
 					tes3mp.SetSkillBase(linkedpid,  tes3mp.GetSkillId(skilledone), beforeskill+1)
 					tes3mp.SendSkills(linkedpid)
 					
 					local message = color.ForestGreen.."[PartySystem] "..color.Default.."Hey "..tes3mp.GetName(linkedpid).." got "..color.Green.."EXTRA Point "..color.Default.."on "..skilledone.." from "..tes3mp.GetName(pid).."\n"
 					LevelParty.SendToParty(linkedpid, message)
 				end
+
 end
 
 
