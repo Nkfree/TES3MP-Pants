@@ -1,9 +1,9 @@
-#DirectTrade 
+# DirectTrade 
 Its a EasyMarket
 You can exchange Items with other Players against Gold
 
 
-##Installation
+## Installation
 
 put the following on top of serverCore.lua
 ```

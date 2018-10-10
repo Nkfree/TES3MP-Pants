@@ -2,14 +2,14 @@
 
 and hunt them down to gather the Bounty
 
-##InGame Use
+## InGame Use
 
 /bounty
 /bounty see
 /bounty set
 
 
-##Installation
+## Installation
 
 put on top of serverCore.lua
 ```

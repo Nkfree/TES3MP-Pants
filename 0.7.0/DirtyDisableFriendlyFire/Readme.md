@@ -1,8 +1,8 @@
-#Turn Friendly Fire Off 
---If you accidentaly hit your buddy and kill him. He will be instantly resurrected.
---This is a dirty Version to stop Friendly Fire.
+# Turn Friendly Fire Off 
+If you accidentaly hit your buddy and kill him. He will be instantly resurrected.
+This is a dirty Version to stop Friendly Fire.
 
-
+## Installation
 find eventHandler.OnPlayerDeath = function(pid)   in eventHandler.lua
 
 and replace the complete function with the following

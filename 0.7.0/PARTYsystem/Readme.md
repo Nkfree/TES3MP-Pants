@@ -1,9 +1,9 @@
-###GroupParty.lua
+### GroupParty.lua
 This is a Grouping Up / Party - System
 add Features to it via Add-In
 
 
-##install instructions: 
+## install instructions: 
 
 put on top of serverCore.lua
 ```
@@ -33,7 +33,7 @@ if GroupParty.OnGUIAction(pid, idGui, data) then return end
 
 
 
-##RandomGold and ShuffleLoot and Bonus Skills
+## RandomGold and ShuffleLoot and Bonus Skills
 
 You can have greater Benefits from Grouping up in Partys.
 See Gold Add-In and Shuffle Loot Add-In and Bonus Skills Add-In
