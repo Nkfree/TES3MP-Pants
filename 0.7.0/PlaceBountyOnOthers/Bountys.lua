@@ -11,7 +11,7 @@ local bountyCooldownTime = 1000
 function bountyTimerEnded()
 	for pid, TimerID in pairs(Cooldowns) do
 		if tes3mp.IsTimerElapsed(TimerID) then
-			Cooldowns[Players[pid].data.BountyChosenPid] = nil
+			Cooldowns[pid] = nil
 			tes3mp.FreeTimer(TimerID)
 		end
 	end
