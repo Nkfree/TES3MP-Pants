@@ -2,10 +2,20 @@
 
 
 Bountys = {}
+Cooldowns = {}
 
 BountyOptionsList = {}
 
+local bountyCooldownTime = 1000
 
+function bountyTimerEnded()
+	for pid, TimerID in pairs() do
+		if tes3mp.IsTimerElapsed(TimerID) then
+			Cooldowns[Players[pid].data.BountyChosenPid] = nil
+			tes3mp.FreeTimer(TimerID)
+		end
+	end
+end
 
 Bountys.SetPlayer = function(pid)
 	local realcount = 1
@@ -195,7 +205,14 @@ Bountys.OnGUIAction = function(pid,idGui,data)
 
 	if idGui == 1220 then
 		if tonumber(data) ~= nil then
-			Bountys.SetBountyValue(pid,tonumber(data))
+			if not Cooldowns[Players[pid].data.BountyChosenPid] then
+				local TimerStart = tes3mp.CreateTimer("bountyTimerEnded", bountyCooldownTime)
+				Cooldowns[Players[pid].data.BountyChosenPid] = TimerStart
+				tes3mp.StartTimer(TimerStart)
+				Bountys.SetBountyValue(pid,tonumber(data))
+			else
+				tes3mp.SendMessage(pid,"Player has had a bounty placed on them within the past hour.\n",false)	
+			end
 		else
 			tes3mp.SendMessage(pid,"Enter a Valid Gold Amount.\n",false)
 		end
