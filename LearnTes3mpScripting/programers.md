@@ -17,3 +17,10 @@ maybe ping the developer david c
 
 heres a export of c++ functions you can use on the lua side
 [Documentation](https://tes3mpdoc.000webhostapp.com/)
+
+
+you might want to check out Atkanas Guide about his Tes3mp Knowledge
+https://github.com/Atkana/tes3mp-scripts/blob/master/Unofficial%20Guide%20to%20tes3mp.md
+
+when you scroll down. there is a list of tes3mp server script repositorys
+https://github.com/TES3MP-TeamFOSS/Scripts
