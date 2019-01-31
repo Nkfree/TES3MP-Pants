@@ -27,7 +27,7 @@ little helping hand to start out with this.
 You can skip this introduction since its focuses on
 pretty basic stuff and instead follow this link.
 
-[Click Here](https://github.com/Schnibbsel/TES3MP-Pants/blob/master/LearnTes3mpScripting/Readme.md)
+[Click Here](https://github.com/Schnibbsel/TES3MP-Pants/blob/master/LearnTes3mpScripting/programers.md)
 
 i would be thankful if you write pull-requests to
 this tutorial.
