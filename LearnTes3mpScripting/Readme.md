@@ -27,7 +27,7 @@ little helping hand to start out with this.
 You can skip this introduction since its focuses on
 pretty basic stuff and instead follow this link.
 
-[Click Here](https://github.com/Schnibbsel/TES3MP-Pants/LearnTes3mpScritping/programers.md)
+[Click Here](https://github.com/Schnibbsel/TES3MP-Pants/blob/master/LearnTes3mpScripting/Readme.md)
 
 i would be thankful if you write pull-requests to
 this tutorial.
@@ -53,6 +53,9 @@ you are able to customize your server like you want to.
 
 ## Scripting basics
 
+[you might want to skip this part and watch a youtube tutorial instead](https://www.youtube.com/watch?v=dHURyRLMOK0)
+since its more professional than my knowledge
+
 If you know what variables and functions are skip this part.
 First we need to understand this basic behaviour:
 ```
@@ -73,7 +76,7 @@ instead we are telling the server what to do within the
 limitations we got.
 what you see abbove are basic variables and some if checks.
 variables are those stuff you know from mathematics in school,
-where a²+b³=c².. and you need to put real values into the formular
+where aÂ²+bÂ³=cÂ².. and you need to put real values into the formular
 to know which one is the end result. scripting is even easier.
 i just have a basic understanding of maths.
 
