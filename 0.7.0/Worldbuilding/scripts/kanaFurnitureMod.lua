@@ -11,7 +11,30 @@
 -- meshes are now missing collision
 -- could need a variety of doors, lights, armor or weapons...
 -- sometimes a cell doesnt exchange records so rocks trees arent always activatable
--- pickable indoors
+-- pickable indoors - does IsInExterior even work?
+-- spawn higher with new dungeon
+-- noPickUp Script for every miscellaneous item
+-- change preObjects part to only send to players entering the cell
+-- make tools necessary for mining
+-- better just combine with RickOffs WorldMining
+-- make keyed tables instead of table.insert when good
+-- let players assign new destinations to doors
+-- assign better craftrock items as used in worldmining
+-- use world.json instead for doors and interiors data
+-- or maybe own json for all 3 so people can still reset world.json
+-- include automatic generation of miscellaneous records for usability with every plugin?
+-- use string.match like GraphicHerbalismn when necessary
+-- use kanaFurn functions when possible
+-- include scale feature
+-- make attach put them furn into their inventory?
+-- make installation easier with less modification of files
+-- clean up script
+-- change price showing up and change "gold" to "material"
+-- find way to export preObjects data and convert with txt2esp
+-- maybe as a command with generating the necessary txt file and removing the entrys
+-- remove print messages
+-- check for activation of normal doors
+--
 
 
 --[[ INSTALLATION:
