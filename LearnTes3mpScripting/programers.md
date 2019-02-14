@@ -1,8 +1,9 @@
-# Learning tes3mp lua scripting for programers
+# Learning tes3mp's lua scripting for programers
 
 use this to learn lua
 [Learn LUA in 15 Minutes](http://tylerneylon.com/a/learn-lua/)
-lua is pretty easy but used in many places
+
+lua is pretty easy [but used in many places](https://sites.google.com/site/marbux/home/where-lua-is-used)
 there is a LUA IDE but you can just use Notepad of your choice
 
 
@@ -19,8 +20,10 @@ heres a export of c++ functions you can use on the lua side
 [Documentation](https://tes3mpdoc.000webhostapp.com/)
 
 
-you might want to check out Atkanas Guide about his Tes3mp Knowledge
-https://github.com/Atkana/tes3mp-scripts/blob/master/Unofficial%20Guide%20to%20tes3mp.md
+you might want to check out [this advanced Guide by the distinguished scripter Atkana](https://github.com/Atkana/tes3mp-scripts/blob/master/Unofficial%20Guide%20to%20tes3mp.md) about his Tes3mp Knowledge
 
-when you scroll down. there is a list of tes3mp server script repositorys
+
+when you scroll down in the following link, there is a list of tes3mp server script repositorys:
 https://github.com/TES3MP-TeamFOSS/Scripts
+
+i would be thankful for pull requests here
