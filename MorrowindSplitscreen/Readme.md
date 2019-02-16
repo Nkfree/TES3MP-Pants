@@ -1,4 +1,4 @@
-# Morrwind Splitscreen Guide
+# Morrowind Splitscreen Guide
 
 *Note: this Guide is for a tes3mp version that is not yet existent.*
 
