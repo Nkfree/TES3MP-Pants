@@ -11,6 +11,7 @@ You need:
 * a Xbox360 Controller (feel free to test with others)
 * the tes3mp version with "disable controller" support
 * [Autohotkey Utility](https://www.autohotkey.com/)
+* [the script above](https://github.com/Schnibbsel/TES3MP-Pants/blob/master/MorrowindSplitscreen/Splitscreen.ahk)
 
 Just follow the steps until the end of this paper
 
@@ -43,7 +44,7 @@ forcing you to repeat the tabbing around procedure
 **follow the following steps to find a work around:**
 
 * download [Autohotkey Utility](https://www.autohotkey.com/) and install it
-* download this script for Autohotkey and place it in your Documents folder
+* download [this script](https://github.com/Schnibbsel/TES3MP-Pants/blob/master/MorrowindSplitscreen/Splitscreen.ahk) for Autohotkey and place it in your Documents folder
 * This will automatically choose a window and dont send the clicks to the other window
 * double click the script to start it. you will see it in the down right corner
 * press k to enable or disable remapping mouse buttons into an openmw window
