@@ -35,9 +35,9 @@ Just follow the steps until the end of this paper
 
 While running around works flawlessly, the cursor for example in the character menu can make strange issues..
 
-For example the mouse player can move the cursor for the joypad player
+For example the mouse-player can move the cursor for the joypad-player
 
-when the accidentaly clicking a button at this time will make the gamepad window active
+when then accidentaly clicking a button will make the gamepad-window active
 
 forcing you to repeat the tabbing around procedure
 
@@ -49,10 +49,10 @@ forcing you to repeat the tabbing around procedure
 * double click the script to start it. you will see it in the down right corner
 * press k to enable or disable remapping mouse buttons into an openmw window
 * press j to kill the script process and end it
-* watch your game screens and choose the one which should be gamepad controlled
+* watch your game screens and choose the one which should be gamepad-controlled
 * tabbing around again
 * disabling controls in the other window
-* now you should be unable to accidentaly click in the other window
+* now you should be unable to accidentaly click in the other window. to try press right mouse button a few times after pressing k
 
 ### Known Bugs
 
