@@ -10,8 +10,21 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 SetTitleMatchMode, 2
 DetectHiddenWindows, On
-WinGet, WinID, ID, OpenMW
-ahk = no
+
+ahk = no ;set to inactive by default
+
+
+Sleep 4000
+WinGet, WinID, ID, Firefox
+ControlClick,,ahk_id %WinID%,,LEFT
+ToolTip, Please recognize. the now active window was chosen. Use k to remap all clicks to this window
+
+Sleep 7000
+ToolTip
+
+
+
+
 
 LButton::
 if (ahk = "yes")
@@ -29,9 +42,19 @@ return
 
 k::
 if (ahk = "no")
+{
 ahk = yes
+ToolTip, activated
+Sleep 2000
+ToolTip
+}
 else
+{
 ahk = no
+ToolTip, deactivated
+Sleep 2000
+ToolTip
+}
 Return
 
 l::
