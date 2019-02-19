@@ -50,6 +50,12 @@ secondsUntilPartyUpdate = secondsUntilPartyUpdate - 1
 ``` 
 then save and close the ```serverCore```.
 
+4. Open ```commmandHandler.lua``` at the top add ```Partyhealth = require("Partyhealth")``` and add this code somewhere under other commands:
+```
+	elseif cmd[1] == "hp" then
+		Partyhealth.condition[pid] = false
+```
+then save and close the ```commandHandler```.
 That should be all.
 
 
