@@ -28,7 +28,7 @@ eventHandler.OnObjectActivate = function(pid, cellDescription)
 ```
 at the bottom add: ```Players[pid].assignedTargetPd = tes3mp.GetObjectPid(index)``` then save and close the ```eventHandler```.
 
-3. Open ```serverCore.lua``` and find this code: 
+3. Open ```serverCore.lua``` at the top add ```Partyhealth = require("Partyhealth")``` and find this code: 
 ```
 function UpdateTime()
 	
