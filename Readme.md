@@ -43,9 +43,11 @@ secondsUntilPartyUpdate = secondsUntilPartyUpdate - 1
                 secondsUntilPartyUpdate = 2
                 for pid, pl in pairs(Players) do
 					if Players[pid].assignedTargetPd ~= nil then
-						Partyhealth.One(pid, Players[pid].assignedTargetPd )
+						if Partyhealth.condition[pid] then
+							Partyhealth.One(pid, Players[pid].assignedTargetPd )
+						end
+					else
 					end
-				end
             end
 ``` 
 then save and close the ```serverCore```.
