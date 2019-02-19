@@ -17,7 +17,6 @@ function Partyhealth.One(pid, targetpd)
 			tes3mp.MessageBox(pid, 8792, color.Red .. "Immediatelly Heal: " .. nameofpid .. " (" .. color.Red .. currenthealth .. color.GoldenRod .. "/" .. color.Red .. basehealth .. ")")
 		end
 		Partyhealth.comparehealth[pid] = currenthealth
-		tes3mp.SendMessage(pid, Partyhealth.comparehealth[pid])
 	else
 		if healthRatio < 1 and healthRatio >= 0.75 then
 			tes3mp.MessageBox(pid, 8793, nameofpid .. "'s HP: " .. currenthealth .. "/" .. basehealth)
