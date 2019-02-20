@@ -1,7 +1,11 @@
 ### GroupParty.lua
 This is a Grouping Up / Party - System
+
 add Features to it via Add-In
 
+* PartyHealth
+* Gold Add-in
+* Skillsync Add-in
 
 ## install instructions: 
 
