@@ -1,4 +1,4 @@
-# TES3MP-GroupParty-Health-Add-on
+# TES3MP-Partyhealth-Add-on
 
 ## What it does:
 When ```Player1``` 'Activates' ```Player2``` he gets continuous update of ```Player2```'s health as GUImessage.
@@ -6,7 +6,7 @@ When ```Player1``` 'Activates' ```Player2``` he gets continuous update of ```Pla
 ## How to INSTALL:
 1. Download the ```Partyhealth.lua``` and put it in */mp-stuff/scripts/*
 2. Open ```eventHandler.lua``` and find this code:
-```
+```lua
 eventHandler.OnObjectActivate = function(pid, cellDescription)
     if Players[pid] ~= nil and Players[pid]:IsLoggedIn() then
 
@@ -26,47 +26,95 @@ eventHandler.OnObjectActivate = function(pid, cellDescription)
 
                 if isObjectPlayer then
 ```
-at the bottom add: ```Players[pid].assignedTargetPd = tes3mp.GetObjectPid(index)``` then save and close the ```eventHandler```.
+below add: 
+```lua
+if type(Players[pid].playersTracked) ~= "table" then Players[pid].playersTracked = {} end
+if not tableHelper.containsValue(Players[pid].playersTracked, tes3mp.GetObjectPid(index)) then
+	table.insert(Players[pid].playersTracked, tes3mp.GetObjectPid(index))
+end
+Partyhealth.condition[pid] = true
+``` 
+then save and close the ```eventHandler```.
 
 3. Open ```serverCore.lua``` at the top add ```Partyhealth = require("Partyhealth")``` and find this code: 
-```
+```lua
 function UpdateTime()
 	
 	
         if config.passTimeWhenEmpty or tableHelper.getCount(Players) > 0 then
 ```
-at the bottom add: 
-```
+below add: 
+```lua
 secondsUntilPartyUpdate = secondsUntilPartyUpdate - 1
 
-            if secondsUntilPartyUpdate < 1 then
-                secondsUntilPartyUpdate = 2
-                for pid, pl in pairs(Players) do
-					if Players[pid].assignedTargetPd ~= nil then
-						if Partyhealth.condition[pid] then
-							Partyhealth.One(pid, Players[pid].assignedTargetPd )
+if secondsUntilPartyUpdate < 1 then
+		secondsUntilPartyUpdate = 2
+		for pid, pl in pairs(Players) do
+			if pl ~= nil and pl:IsLoggedIn() then
+				if Players[pid].playersTracked ~= nil then
+					for _, pidTracked in pairs(Players[pid].playersTracked) do
+						if  pidTracked ~= nil and Players[pidTracked]:IsLoggedIn() then
+							if Partyhealth.condition[pid] then
+								if Partyhealth.Display[pid] == "gui" then
+									Partyhealth.Gui(pid, pidTracked)
+								elseif Partyhealth.Display[pid] == "chat" then
+									Partyhealth.Chat(pid, pidTracked)
+								else
+									Partyhealth.Gui(pid, pidTracked)
+								end
+							end
+						else
+							Partyhealth.condition[pid] = false
+							Partyhealth.Display[pid] = "gui"
 						end
-					else
 					end
-            end
+				end
+			else
+				Partyhealth.condition[pid] = false
+				Partyhealth.Display[pid] = "gui"
+			end
+		end
+end
 ``` 
+then find this code: 
+```lua
+function OnPlayerConnect(pid)
+```
+and at the bottom above last ```end``` (not below the function) add: ```Partyhealth.OnConnect(pid)```
+
+lastly find this code:
+```lua
+function OnPlayerDisconnect(pid)
+```
+and just below the function add: ```Partyhealth.OnDisconnect(pid)```
+
 then save and close the ```serverCore```.
 
 4. Open ```commmandHandler.lua``` at the top add ```Partyhealth = require("Partyhealth")``` and add this code somewhere under other commands:
-```
-	elseif cmd[1] == "hp" then
-		Partyhealth.condition[pid] = false
+```lua
+elseif cmd[1] == "hp" then
+	Partyhealth.condition[pid] = false
+
+elseif cmd[1] == "show" then
+if cmd[2] == "chat" or cmd[2] == "Chat" or cmd[2] == "1" then
+	Partyhealth.Display[pid] = "chat" 
+elseif cmd[2] == "Gui" or cmd[2] == "gui" or cmd[2] == "0" or cmd[2] == "Default" or cmd[2] == "default" then
+	Partyhealth.Display[pid] = "gui"
+else
+	tes3mp.SendMessage(pid, "Wrong input, for chat use: 'chat' or '1', for gui use: 'gui' or '1'".."\n", false)  
+	Partyhealth.Display[pid] = "gui"
+end
 ```
 then save and close the ```commandHandler```.
 That should be all.
 
 
-## How to do it:
-If it needs further explanation - approach another ```Player``` and hit the button you use for opening ```doors```.
+## How to do it in-game (if it needs further explanation):
+Approach another ```Player``` and hit the button which you use for opening ```doors```.
 
 ## Known problems:
-1. I only tested it among 2 players. I'm not experienced enough to know from the code if you can display health of more than one person, I would have to try that some time.
-2. There's no way to stop the health update yet apart from logging out (I guess). I want to add a condition that can be triggered by typing ```/hp``` in the chat. Maybe it can be even further optimized to ```/hp <pid>``` so you can turn off displaying of certain person's HP.
+Feel free to tell me, I don't know if I'll be able to solve them though.
+
 
 
 ## Credits
