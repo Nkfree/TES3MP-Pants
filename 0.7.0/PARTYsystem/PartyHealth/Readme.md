@@ -107,7 +107,9 @@ Approach another ```Player``` and hit the button which you use for opening ```do
 To turn it off write in CHAT ```/hp <pid> (or <name>); example /hp 1 or /hp Player1``` (notice: Typing the command again should turn it back on)
 
 To switch between GUI message and chat message use any of these in the CHAT:
+
 GUI - /gui <pid> (or <name>)
+	
 CHAT - /chat <pid> (or <name>)
 
 ## Known problems:
