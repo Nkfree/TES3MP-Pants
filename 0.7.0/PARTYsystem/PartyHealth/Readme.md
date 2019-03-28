@@ -108,9 +108,9 @@ To turn it off write in CHAT ```/hp <pid> (or <name>); example /hp 1 or /hp Play
 
 To switch between GUI message and chat message use any of these in the CHAT:
 
-GUI - /gui <pid> (or <name>)
+GUI - ```/gui <pid> (or <name>)```
 	
-CHAT - /chat <pid> (or <name>)
+CHAT - ```/chat <pid> (or <name>)```
 
 ## Known problems:
 Feel free to tell me, I don't know if I'll be able to solve them though.
